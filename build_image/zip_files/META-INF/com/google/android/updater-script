@@ -1,0 +1,147 @@
+set_progress(1.000000);
+ui_print(" ");
+ui_print("=======================================");
+ui_print("      Hybridmax-Kernel Installer       ");
+ui_print("       Device: GalaxyS4 [I9505]        ");
+ui_print("_______________________________________");
+ui_print("        powered by Mystery-Team        ");
+ui_print("=======================================");
+ui_print(" ");
+ui_print("Mounting Partitions");
+ui_print(" ");
+run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/busybox", "mount", "/data");
+run_program("/sbin/busybox", "mount", "/cache");
+run_program("/sbin/busybox", "mount", "/sdcard");
+run_program("/sbin/busybox", "mount", "/preload");
+
+ui_print("Cleaning KNOX and old Kernel Files");
+ui_print(" ");
+
+# Modules
+delete_recursive("/system/lib/modules");
+
+# STweaks
+delete_recursive("/data/app/com.gokhanmoral.stweaks.app-1");
+delete_recursive("/data/app/com.gokhanmoral.stweaks.app-2");
+delete_recursive("/data/app/com.gokhanmoral.stweaks.app-3");
+delete("/data/app/com.gokhanmoral.stweaks.app-1.apk");
+delete("/data/app/com.gokhanmoral.stweaks.app-2.apk");
+delete("/data/app/com.gokhanmoral.stweaks.app-3.apk");
+delete_recursive("/system/app/STweaks");
+delete("/system/app/STweaks.apk");
+delete_recursive("/system/app/STweaks_Googy-Max");
+delete("/system/app/STweaks_Googy-Max.apk");
+delete_recursive("/system/app/GTweaks");
+delete("/system/app/GTweaks.apk");
+delete_recursive("/system/app/HybridTweaks");
+delete("/system/app/HybridTweaks.apk");
+delete_recursive("/system/app/Hulk-Kernel sTweaks");
+delete_recursive("/system/app/Hulk*sTweaks");
+delete_recursive("/system/app/Hulk*STweaks");
+delete("/system/app/Hulk-Kernel sTweaks.apk");
+delete("/system/app/Hulk*sTweaks.apk");
+delete("/system/app/Hulk*STweaks.apk");
+delete_recursive("/system/priv-app/STweaks");
+delete("/system/priv-app/STweaks.apk");
+delete_recursive("/system/priv-app/STweaks_Googy-Max");
+delete("/system/priv-app/STweaks_Googy-Max.apk");
+delete_recursive("/system/priv-app/GTweaks");
+delete("/system/priv-app/GTweaks.apk");
+delete_recursive("/system/priv-app/HybridTweaks");
+delete("/system/priv-app/HybridTweaks.apk");
+delete_recursive("/system/priv-app/Hulk-Kernel sTweaks");
+delete_recursive("/system/priv-app/Hulk*sTweaks");
+delete_recursive("/system/priv-app/Hulk*STweaks");
+delete("/system/priv-app/Hulk-Kernel sTweaks.apk");
+delete("/system/priv-app/Hulk*sTweaks.apk");
+delete("/system/priv-app/Hulk*STweaks.apk");
+delete_recursive("/data/data/com.gokhanmoral.stweaks.app");
+delete_recursive("/data/data/com.gokhanmoral.stweaks_ghost.app");
+delete_recursive("/data/data/com.gokhanmoral.stweaks*");
+
+# Synapse app
+delete_recursive("/sdcard/Synapse");
+delete_recursive("/mnt/sdcard/Synapse");
+delete_recursive("/storage/sdcard0/Synapse");
+delete_recursive("/data/media/0/Synapse");
+delete_recursive("/data/.Synapse");
+delete_recursive("/data/data/com.af.synapse");
+delete_recursive("/system/app/Synapse");
+delete("/system/app/Synapse.apk");
+delete_recursive("/data/app/Synapse");
+delete("/data/app/Synapse.apk");
+delete("/data/app/com.af.synapse-1.apk");
+delete("/data/app/com.af.synapse-2.apk");
+delete("/data/app/com.af.synapse-3.apk");
+delete("/data/app/com.af.synapse-4.apk");
+delete("/data/app/com.af.synapse-5.apk");
+delete_recursive("/data/app/com.af.synapse-1");
+delete_recursive("/data/app/com.af.synapse-2");
+delete_recursive("/data/app/com.af.synapse-3");
+delete_recursive("/data/app/com.af.synapse-4");
+delete_recursive("/data/app/com.af.synapse-5");
+delete_recursive("/data/app-lib/com.af.synapse-1");
+delete_recursive("/data/app-lib/com.af.synapse-2");
+delete_recursive("/data/app-lib/com.af.synapse-3");
+delete_recursive("/data/app-lib/com.af.synapse-4");
+delete_recursive("/data/app-lib/com.af.synapse-5");
+delete("/data/dalvik-cache/system@app@Synapse.apk@classes.dex");
+delete("/data/dalvik-cache/data@app@Synapse.apk@classes.dex");
+delete("/data/dalvik-cache/data@app@com.af.synapse-1.apk@classes.dex");
+delete("/data/dalvik-cache/data@app@com.af.synapse-2.apk@classes.dex");
+delete("/data/dalvik-cache/data@app@com.af.synapse-3.apk@classes.dex");
+delete("/data/dalvik-cache/data@app@com.af.synapse-4.apk@classes.dex");
+delete("/data/dalvik-cache/data@app@com.af.synapse-5.apk@classes.dex");
+
+# Security Service
+delete_recursive("/system/app/SecurityManagerService");
+delete_recursive("/system/app/SecurityProviderSEC");
+delete_recursive("/system/app/SecurityLogAgent");
+
+# KNOX
+delete_recursive("/system/app/KnoxAttestationAgent");
+delete_recursive("/system/app/KnoxMigrationAgent");
+delete_recursive("/system/app/KnoxSetupWizardClient");
+delete_recursive("/system/app/KnoxSetupWizardStub");
+delete_recursive("/system/app/KNOXStore");
+delete_recursive("/system/app/RCPComponents");
+delete_recursive("/system/app/UniversalMDMClient");
+delete_recursive("/system/app/ELMAgent");
+delete_recursive("/system/priv-app/KLMSAgent");
+delete_recursive("/system/container");
+delete_recursive("/system/preloadedsso");
+delete_recursive("/system/etc/secure_storage/com.samsung.android.securitylogagent");
+delete_recursive("/system/etc/secure_storage/com.sec.knox.store");
+delete("/system/tima_measurement_info");
+
+ui_print("Extracting System Files");
+ui_print(" ");
+package_extract_dir("system", "/system");
+package_extract_dir("data", "/data");
+
+ui_print("Extracting Kernel Files");
+ui_print(" ");
+package_extract_dir("kernel", "/tmp");
+package_extract_file("boot.img", "/tmp/boot.img");
+set_perm(0, 0, 0777, "/tmp/loki_bootloaders");
+set_perm(0, 0, 0777, "/tmp/flash_kernel.sh");
+set_perm(0, 0, 0777, "/tmp/loki_patch");
+set_perm(0, 0, 0777, "/tmp/loki_flash");
+ui_print("Flashing Kernel");
+ui_print(" ");
+run_program("/tmp/flash_kernel.sh");
+
+ui_print("Unmounting Partitions");
+ui_print(" ");
+unmount("/cache");
+unmount("/data");
+unmount("/preload");
+unmount("/sdcard");
+unmount("/system");
+
+ui_print("=======================================");
+ui_print("  Kernel Installation was successfull  ");
+ui_print("---------------------------------------");
+ui_print("            Please reboot!             ");
+ui_print("=======================================");

@@ -1,0 +1,11 @@
+#!/sbin/busybox sh
+
+if [ "a$2" != "a" ];then
+echo $2 > /data/.hybridmax/.hybridmax.profile
+fi
+
+if [ -f /data/.hybridmax/.hybridmax.profile ];then
+  cat /data/.hybridmax/.hybridmax.profile
+else
+  echo "balanced" > /data/.hybridmax/.hybridmax.profile
+fi

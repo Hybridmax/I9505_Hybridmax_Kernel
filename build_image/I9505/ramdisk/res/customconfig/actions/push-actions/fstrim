@@ -1,0 +1,10 @@
+#!/sbin/busybox sh
+
+/sbin/busybox fstrim -v /system > /data/.hybridmax/fstrim_log;
+/sbin/busybox fstrim -v /data >> /data/.hybridmax/fstrim_log;
+/sbin/busybox fstrim -v /cache >> /data/.hybridmax/fstrim_log;
+
+fstrim_log=$(cat /data/.hybridmax/fstrim_log);
+
+echo "$fstrim_log"
+
