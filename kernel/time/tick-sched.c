@@ -406,7 +406,7 @@ static void tick_nohz_stop_sched_tick(struct tick_sched *ts)
 		 * the scheduler tick in nohz_restart_sched_tick.
 		 */
 		if (!ts->tick_stopped) {
-			nohz_balance_enter_idle(cpu);
+			select_nohz_load_balancer(1);
 			calc_load_enter_idle();
 
 			ts->idle_tick = hrtimer_get_expires(&ts->sched_timer);
