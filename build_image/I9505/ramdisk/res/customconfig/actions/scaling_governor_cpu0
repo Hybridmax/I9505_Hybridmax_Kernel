@@ -5,8 +5,8 @@
 # Created By Dorimanx
 
 # get values from profile
-PROFILE=$(cat /data/.imperium/.active.profile);
-. /data/.imperium/"$PROFILE".profile;
+PROFILE=$(cat /data/.hybridmax/.active.profile);
+. /data/.hybridmax/"$PROFILE".profile;
 
 if [ "a$2" != "a" ]; then
 	scaling_governor_cpu0=$2;
