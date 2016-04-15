@@ -1194,7 +1194,6 @@ service SIDESYNC_service /system/bin/ss_conn_daemon
 
 # launch Post-Init Script
 service post-init /sbin/post-init.sh
-    class late_start
+    class main
     user root
-    seclabel u:r:init:s0
     oneshot

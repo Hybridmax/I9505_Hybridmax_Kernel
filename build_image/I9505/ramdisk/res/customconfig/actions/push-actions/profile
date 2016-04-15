@@ -1,5 +1,0 @@
-#!/sbin/busybox sh
-
-PROFILE=`cat /data/.hybridmax/.active.profile`;
-
-echo "your profile: \"$PROFILE\"";
