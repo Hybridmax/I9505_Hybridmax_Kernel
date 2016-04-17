@@ -122,7 +122,6 @@ package_extract_dir("data", "/data");
 
 ui_print("Extracting Kernel Files");
 ui_print(" ");
-package_extract_dir("hybridmax", "/tmp");
 package_extract_dir("kernel", "/tmp");
 package_extract_file("boot.img", "/tmp/boot.img");
 set_perm(0, 0, 0777, "/tmp/loki_bootloaders");
@@ -135,12 +134,16 @@ run_program("/tmp/flash_kernel.sh");
 delete_recursive("/tmp");
 
 # SuperSU Installation
-run_program("/system/xbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");
-run_program("/system/xbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/supersu.zip");
+package_extract_dir("hybridmax/supersu", "/tmp/supersu");
+run_program("/sbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");
+run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/supersu.zip");
+delete_recursive("/tmp/supersu");
 
 # Busybox Installation
-run_program("/system/xbin/busybox", "unzip", "/tmp/busybox/busybox.zip", "META-INF/com/google/android/*", "-d", "/tmp/busybox");
-run_program("/system/xbin/busybox", "sh", "/tmp/busybox/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/busybox/busybox.zip");
+package_extract_dir("hybridmax/busybox", "/tmp/busybox");
+run_program("/sbin/busybox", "unzip", "/tmp/busybox/busybox.zip", "META-INF/com/google/android/*", "-d", "/tmp/busybox");
+run_program("/sbin/busybox", "sh", "/tmp/busybox/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/busybox/busybox.zip");
+delete_recursive("/tmp/busybox");
 
 ui_print("Unmounting Partitions");
 ui_print(" ");
